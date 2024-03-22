@@ -5,8 +5,8 @@ title Serphp Console x
 rem cd /d "%USERPROFILE%\Desktop\"
 
 
-DOSKEY sphp2=notepad "E:\ProgramData\Serphp\alias.cmd" $*
-DOSKEY sphp=notepad "C:\alias.cmd" $*
+DOSKEY sphp2=notepad "E:\ProgramData\Serphp\serphp.cmd" $*
+DOSKEY sphp=notepad "C:\serph.cmd" $*
 
 DOSKEY h=doskey /history 
 DOSKEY q=exit
@@ -16,6 +16,7 @@ DOSKEY d=cd "%UserProfile%\downloads"
 DOSKEY p=cd "C:/Users/serph/OneDrive/Escritorio/Bryan}/Programacion"
 rem DOSKEY a=cd "C:\Users\serph\StudioProjects"
 
+DOSKEY ws=cd "C:\Program Files\JetBrains\WebStorm 2023.3.5\bin\webstorm64.exe" $*
 
 DOSKEY 1=cd "E:\ProgramData\Serphp\Tools"
 DOSKEY 2=cd "E:\ProgramData\Serphp\Fuzz & Payloads"
