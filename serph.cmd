@@ -4,30 +4,35 @@ doskey /listsize=10000
 title Serphp Console x
 rem cd /d "%USERPROFILE%\Desktop\"
 
+rem Config
+DOSKEY sphp2=notepad "E:\ProgramData\Serphp\alias.cmd" $*
+DOSKEY sphp=notepad "C:\alias.cmd" $*
 
-DOSKEY sphp2=notepad "E:\ProgramData\Serphp\serphp.cmd" $*
-DOSKEY sphp=notepad "C:\serph.cmd" $*
-
+rem Terminal Hotkeys
 DOSKEY h=doskey /history 
 DOSKEY q=exit
 DOSKEY s=start . */
 doskey c=cd "C:\"
 DOSKEY d=cd "%UserProfile%\downloads"
-DOSKEY p=cd "C:/Users/serph/OneDrive/Escritorio/Bryan}/Programacion"
-rem DOSKEY a=cd "C:\Users\serph\StudioProjects"
 
-DOSKEY ws=cd "C:\Program Files\JetBrains\WebStorm 2023.3.5\bin\webstorm64.exe" $*
 
+rem Usuario
 DOSKEY 1=cd "E:\ProgramData\Serphp\Tools"
 DOSKEY 2=cd "E:\ProgramData\Serphp\Fuzz & Payloads"
 DOSKEY wget=wget -c $*
+DOSKEY rt=cd "%UserProfile%\OneDrive\Escritorio\Bryan}\Programacion\Proyectos\React"
+DOSKEY p=cd "C:/Users/serph/OneDrive/Escritorio/Bryan}/Programacion"
+rem DOSKEY a=cd "C:\Users\serph\StudioProjects"
 
+rem Python
 DOSKEY p2="C:\Python27\Python2.exe" $*
 DOSKEY p3="C:\Python38\python38.exe" $*
 DOSKEY sudo=runas /user:administrator $*
-
 DOSKEY pmr=python manage.py runserver $*
+rem Python DJANGO
+DOSKEY serve=python -m SimpleHTTPServer 8080
 
+rem Web Development
 DOSKEY ni=npm install $*
 DOSKEY ns=npm start $*
 DOSKEY nrd=npm run dev $*
@@ -36,21 +41,17 @@ DOSKEY nu=npm uninstall $*
 DOSKEY nf=npm audit fix $*
 DOSKEY nff=npm audit fix --force $*
 
+rem Github
 DOSKEY grm=git remote rm origin $*
-
 DOSKEY gaa=git add * $*
 DOSKEY ga=git add $*
-
 DOSKEY gcr=git commit --amend -m $*
 DOSKEY gc=git commit -m $*
-
 DOSKEY gpr=git pull --rebase origin main $*
 DOSKEY gck=git checkout main $*
-
 DOSKEY gm=git merge --no-ff $*
-
-
 DOSKEY gz=git switch $*
+DOSKEY gst=git stash $*
 DOSKEY gs=git status $*
 DOSKEY gst=git status -s $*
 DOSKEY gb=git brach $*
@@ -58,22 +59,22 @@ DOSKEY gl=git log --oneline $*
 DOSKEY gp=git push $*
 DOSKEY gpp=git push --set-upstream origin master $*
 
+rem Flutter Movile
 DOSKEY fr=flutter run $*
 DOSKEY fb=flutter build $*
 DOSKEY fd=flutter doctor $*
 
-rem DOSKEY np=npx prisma generate $*
-rem DOSKEY npmd=npx prisma migrate dev --name $*
-rem DOSKEY npmm=npx prisma migrate dev --create-only $*
+rem Prisma db
+DOSKEY np=npx prisma generate $*
+DOSKEY npmd=npx prisma migrate dev --name $*
+DOSKEY npmm=npx prisma migrate dev --create-only $*
 
-DOSKEY rt=cd "%UserProfile%\OneDrive\Escritorio\Bryan}\Programacion\Proyectos\React"
 
+rem Services
 DOSKEY pspath=wmic process get processid,parentprocessid,executablepath
 DOSKEY psg=tasklist | findstr /i $*
 DOSKEY nsg=netstat -nao | findstr /i $* 
 
-
-DOSKEY serve=python -m SimpleHTTPServer 8080
 
 DOSKEY ..=cd .. $t ls -Al --color=auto
 DOSKEY ...=cd ../.. $t ls -Al --color=auto
@@ -89,6 +90,7 @@ DOSKEY lu=ls -ltur --color=auto
 DOSKEY lt=ls -ltr --color=auto 
 DOSKEY lr=ls -lR --color=auto
 
+rem Del
 doskey dr=rmdir $*
 DOSKEY rm=rm -r $*
 doskey rf=rm -rf $*
