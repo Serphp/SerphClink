@@ -1,0 +1,21 @@
+# Set alias 'oc' to open program with the current path
+#Set-Alias -Name oc -Value 'C:\Program Files\OneCommander\OneCommander.exe'
+
+# Inject Clink if using ConsoleHost (CMD)
+#if ($host.Name -eq 'ConsoleHost') { & 'C:\Users\serph\scoop\apps\clink\1.6.21\clink_x64.exe' inject --quiet }
+
+# Usando WSL para ejecutar un comando de Bash
+wsl echo "Hello from Bash"
+
+# Inicializar Oh My Posh con la configuración especificada
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\atomic.omp.json" | Invoke-Expression
+
+# Bash-like completion with an interactive menu
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+# Ejecutar alias.bat usando CMD
+function Start-Clink {
+    cmd.exe /k "C:\Users\serph\scoop\apps\clink\1.6.21\clink_x64.exe inject"
+}
+
+Start-Clink
