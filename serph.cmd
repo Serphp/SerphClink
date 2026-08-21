@@ -196,5 +196,11 @@ DOSKEY javar=java -Xmx345M -jar $*
 DOSKEY laragon="C:\laragon\laragon.exe" $*
 DOSKEY hosts="E:\ProgramData\Serphp\Tools\HostsFileEditor1.2\HostsFileEditor.exe" $*
 
+DOSKEY ff=fastfetch $*
+DOSKEY neofetch=fastfetch $*
+
 echo [OK] SerphClink Cyberpunk Toolkit cargado. Escribe 'aliases' o 'serph-help' para ver atajos.
+
+rem Ejecutar Fastfetch al inicio
+fastfetch
 

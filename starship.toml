@@ -1,0 +1,145 @@
+﻿# ==============================================================================
+#  ⚡ CYBERPUNK 2077 // NIGHT CITY HUD - STARSHIP PROMPT CONFIG ⚡
+# ==============================================================================
+
+# Layout inspired by Cyberpunk 2077 HUD (Kiroshi Optics & SAMURAI style)
+format = """
+[┌───](bold #fcee0a)\
+$os\
+$username\
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$package\
+$nodejs\
+$python\
+$rust\
+$golang\
+$dotnet\
+$docker_context\
+$cmd_duration\
+$fill\
+$time\
+$line_break\
+[└──](bold #fcee0a)\
+$character"""
+
+command_timeout = 1000
+continuation_prompt = '[∙∙∙](bold #fcee0a) '
+
+# Palette: Official Cyberpunk 2077 Game Colors
+[palettes.cp2077]
+cp_yellow   = "#fcee0a"  # Iconic Cyberpunk 2077 Yellow
+cp_red      = "#ff003c"  # Trauma Team / Samurai Red
+cp_cyan     = "#00f0ff"  # Kiroshi / Netrunner Ice Blue
+cp_purple   = "#d600ff"  # Moxes / Lizzie's Neon Magenta
+cp_green    = "#00ffa3"  # Cyberware Scan Green
+cp_dark     = "#12131a"  # Night City Deep Charcoal
+cp_surface  = "#1e1f29"  # HUD Plate Dark Grey
+cp_line     = "#2d2f3e"  # Subtle HUD Line
+text_dark   = "#000000"  # High Contrast Text
+
+palette = "cp2077"
+
+# HUD dividing line
+[fill]
+symbol = "─"
+style = "bold #2d2f3e"
+
+# OS Badge (Iconic CP2077 Black on Yellow block)
+[os]
+disabled = false
+style = "bg:#fcee0a fg:#000000 bold"
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲 NC-OS"
+Ubuntu = "󰕈 UBU-SYS"
+Linux = "󰌽 CYBER-NIX"
+Macos = "󰀵 MAC-SYS"
+
+# User / Operator (V // Netrunner)
+[username]
+show_always = true
+style_user = "bg:#1e1f29 fg:#fcee0a bold"
+style_root = "bg:#ff003c fg:#ffffff bold"
+format = "[ 󰀄 V//$user ]($style)"
+
+# Directory / Data Shard Path
+[directory]
+style = "bg:#12131a fg:#00f0ff bold"
+format = "[  $path ]($style)"
+truncation_length = 4
+truncation_symbol = "…/"
+read_only = " 󰌾 LOCKED"
+read_only_style = "bg:#12131a fg:#ff003c bold"
+
+[directory.substitutions]
+"Documents" = "󰈙 Shards"
+"Downloads" = "󰇚 Downloads"
+"Music" = "󰝚 Radio"
+"Pictures" = "󰋩 Braindance"
+"Projects" = "󰲋 NetHub"
+"workspace" = "󰲋 NetHub"
+
+# Git Branch (Samurai / Trauma Team Red)
+[git_branch]
+symbol = " "
+style = "bg:#ff003c fg:#000000 bold"
+format = "[ $symbol$branch ]($style)"
+
+# Git Status (HUD Glitch & Sync Status)
+[git_status]
+style = "bg:#2d2f3e fg:#fcee0a bold"
+format = "([ $all_status$ahead_behind ]($style))"
+conflicted = "󰞇 GLITCH "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕ "
+untracked = " "
+stashed = "📦 "
+modified = "󱗝 MOD "
+staged = "󰗡 ICE "
+renamed = "󰑕 "
+deleted = "🗑 "
+
+[git_state]
+style = "bg:#ff003c fg:#fcee0a bold"
+format = '[\($state( $progress_current/$progress_total)\)]($style)'
+
+# Command Execution Duration
+[cmd_duration]
+min_time = 2_000
+style = "bg:#1e1f29 fg:#fcee0a bold"
+format = "[  ${duration} ]($style)"
+
+# Clock (Night City Standard Time in Cyber Cyan block)
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:#00f0ff fg:#000000 bold"
+format = "[ 󱑎 $time NC ]($style)"
+
+# Languages & Runtimes (Kiroshi Scanner Colors)
+[nodejs]
+symbol = "󰌠 "
+style = "bg:#12131a fg:#00ffa3 bold"
+format = "[ $symbol($version) ]($style)"
+
+[python]
+symbol = " "
+style = "bg:#12131a fg:#00f0ff bold"
+format = '[ ${symbol}${pyenv_prefix}(${version})(\($virtualenv\)) ]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "bg:#12131a fg:#fcee0a bold"
+format = "[ $symbol($version) ]($style)"
+
+# Prompt Character (Bottom line)
+# Success: Yellow + Cyan + Red (The 3 primary CP2077 colors)
+# Error: Relic Malfunction warning in Trauma Red
+[character]
+success_symbol = "[⚡](bold #fcee0a)[❯](bold #00f0ff)[❯](bold #ff003c) "
+error_symbol = "[⚠ RELIC MALFUNCTION](bold #ff003c) [❯❯](bold #ff003c) "
