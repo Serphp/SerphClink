@@ -9,6 +9,8 @@ rem ============================================================================
 DOSKEY sphp=notepad "%~f0"
 DOSKEY sphp2=notepad "%USERPROFILE%\Desktop\Bryan}\Programacion\SerphClink\serph.cmd"
 DOSKEY reload="%~f0"
+DOSKEY msys=C:\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64
+DOSKEY pacman=C:\msys64\usr\bin\pacman.exe $\*
 DOSKEY aliases=doskey /macros
 DOSKEY serph-help=doskey /macros
 
@@ -203,4 +205,5 @@ echo [OK] SerphClink Cyberpunk Toolkit cargado. Escribe 'aliases' o 'serph-help'
 
 rem Ejecutar Fastfetch al inicio
 fastfetch
+
 

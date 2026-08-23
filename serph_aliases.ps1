@@ -167,3 +167,8 @@ if (Get-Command fastfetch -ErrorAction SilentlyContinue) {
 }
 
 
+
+# MSYS2 & Pacman
+function msys { & C:\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64 }
+function pacman { & C:\msys64\usr\bin\pacman.exe $args }
+
